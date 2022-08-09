@@ -36,18 +36,16 @@ function onImgClick(event) {
         instance.element().querySelector('img').onclick = instance.close;
         window.addEventListener('keydown', onClose);
       },
-      onClose: () => window.removeEventListener('keydown', onClose),
+      onClose: (instance) => window.removeEventListener('keydown', onClose),
     }
   );
   instance.show();
-  return;
 }
 
 function onClose(event) {
   if (event.code === 'Escape') {
     console.log(event.code);
     instance.close();
-    return;
   }
 }
 galleryBox.addEventListener('click', onImgClick);
