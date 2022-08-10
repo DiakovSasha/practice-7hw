@@ -29,8 +29,7 @@ function onImgClick(event) {
   }
   const instance = basicLightbox.create(
     `
-  <img src="${event.target.dataset.source}" width="800" height="600">
-  `,
+    <img src="${event.target.dataset.source}" width="800" height="600">`,
     {
       onShow: (instance) => {
         instance.element().querySelector('img').onclick = instance.close;
@@ -40,12 +39,11 @@ function onImgClick(event) {
     }
   );
   instance.show();
-}
 
-function onClose(event) {
-  if (event.code === 'Escape') {
-    console.log(event.code);
-    instance.close();
+  function onClose(event) {
+    if (event.code === 'Escape') {
+      instance.close();
+    }
   }
 }
 galleryBox.addEventListener('click', onImgClick);
